@@ -1,4 +1,4 @@
-import { lusiana } from '@/app/ui/fonts';
+import { lusitana } from '@/app/ui/fonts';
 import { fetchCardData } from '@/app/lib/data';
 import { HiMiniBanknotes } from "react-icons/hi2";
 import { FaClock } from "react-icons/fa6";
@@ -52,7 +52,7 @@ export function Card({
         <h3 className="ml-2 text-sm font-medium">{title}</h3>
       </div>
       <p
-        className={`${lusiana.className}
+        className={`${lusitana.className}
           truncate rounded-xl bg-white px-4 py-8 text-center text-2xl`}
       >
         {value}

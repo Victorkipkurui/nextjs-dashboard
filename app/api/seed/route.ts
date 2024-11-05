@@ -1,10 +1,10 @@
 import bcrypt from 'bcrypt'
 import { db } from '@vercel/postgres';
-import { invoices, customers, revenue, users } from '../lib/placeholder-data';
+import { invoices, customers, revenue, users } from '../../lib/placeholder-data';
 
 const client = await db.connect();
 
-const seedUsers = async () => {
+async function seedUsers() {
   await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
   await client.sql`
     CREATE TABLE IF NOT EXISTS users (
@@ -102,10 +102,6 @@ async function seedRevenue() {
 }
 
 export async function GET() {
-  return Response.json({
-    message:
-      'Uncomment this file and remove this line. You can delete this file when you are finished.',
-  });
   try {
     await client.sql`BEGIN`;
     await seedUsers();

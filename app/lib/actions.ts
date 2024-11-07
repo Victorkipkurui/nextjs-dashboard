@@ -3,7 +3,7 @@ import { z } from 'zod';
 import { sql } from '@vercel/postgres';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
-import { signIn } from '@/auth';
+import { signIn } from '@/app/auth';
 import { AuthError } from 'next-auth';
 
 const FormSchema = z.object({
@@ -62,7 +62,7 @@ export async function createInvoice(prevState: State, formData: FormData) {
   } catch (error) {
     // If a database error occurs, return a more specific error.
     return {
-      message: 'Database Error: Failed to Create Invoice.',
+      message: `${error}, Database Error: Failed to Create Invoice.`,
     };
   }
 
@@ -99,7 +99,7 @@ export async function updateInvoice(
       WHERE id = ${id}
     `;
   } catch (error) {
-    return { message: 'Database Error: Failed to Update Invoice.' };
+    return { message: `${error}, Database Error: Failed to Update Invoice.` };
   }
 
   revalidatePath('/dashboard/invoices');
@@ -114,7 +114,7 @@ export async function deleteInvoice(id: string) {
     revalidatePath('/dashboard/invoices');
     return { message: 'Deleted Invoice' };
   } catch (error) {
-    return { message: 'Database Error: Failed to Delete Invoice.' };
+    return { message: `${error}, Database Error: Failed to Delete Invoice.` };
   }
 }
 

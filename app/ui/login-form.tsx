@@ -64,7 +64,6 @@ export default function LoginForm() {
         </Button>
         <form
           action={async () => {
-            "use server"
             await signIn("google")
           }}>
           <Button  className="mt-4 w-full flex justify-center">
@@ -73,7 +72,6 @@ export default function LoginForm() {
         </form>
         <form
           action={async () => {
-            "use server"
             await signIn("github")
           }}>
           <Button  className="mt-4 w-full flex justify-center">

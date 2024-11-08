@@ -1,7 +1,7 @@
 'use client'
 import { lusitana } from '@/app/ui/fonts';
 import { HiAtSymbol } from "react-icons/hi";
-import { FaKey, FaCircleExclamation, FaGoogle,} from "react-icons/fa6";
+import { FaKey, FaCircleExclamation,} from "react-icons/fa6";
 import { Button } from './button';
 import { useActionState } from 'react';
 import { authenticate } from '@/app/lib/actions';
@@ -60,9 +60,6 @@ export default function LoginForm() {
         </div>
         <Button className="mt-4 w-full flex justify-center" aria-disabled={isPending}>
           Log in 
-        </Button>
-        <Button  className="mt-4 w-full flex justify-center">
-          <FaGoogle className='m-2' /> Continue with Google
         </Button>
         <div
           className="flex h-8 items-end space-x-1"

@@ -1,11 +1,10 @@
 'use client'
 import { lusitana } from '@/app/ui/fonts';
 import { HiAtSymbol } from "react-icons/hi";
-import { FaKey, FaCircleExclamation, FaGoogle, FaGithub} from "react-icons/fa6";
+import { FaKey, FaCircleExclamation, FaGoogle,} from "react-icons/fa6";
 import { Button } from './button';
 import { useActionState } from 'react';
 import { authenticate } from '@/app/lib/actions';
-import { signIn } from "@/app/auth"
 
 export default function LoginForm() {
   const [errorMessage, formAction, isPending] = useActionState(
@@ -62,22 +61,9 @@ export default function LoginForm() {
         <Button className="mt-4 w-full flex justify-center" aria-disabled={isPending}>
           Log in 
         </Button>
-        <form
-          action={async () => {
-            await signIn("google")
-          }}>
-          <Button  className="mt-4 w-full flex justify-center">
+        <Button  className="mt-4 w-full flex justify-center">
           <FaGoogle className='m-2' /> Continue with Google
-          </Button>
-        </form>
-        <form
-          action={async () => {
-            await signIn("github")
-          }}>
-          <Button  className="mt-4 w-full flex justify-center">
-          <FaGithub className='m-2' /> Continue with Github
-          </Button>
-        </form>
+        </Button>
         <div
           className="flex h-8 items-end space-x-1"
           aria-live="polite"

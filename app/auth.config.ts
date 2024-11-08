@@ -1,7 +1,10 @@
 import type { NextAuthConfig } from 'next-auth';
+import Google from 'next-auth/providers/google';
  
 export const authConfig = {
-
+  pages: {
+    signIn: '/login'
+  },
   callbacks: {
     authorized({ auth, request: { nextUrl } }) {
       const isLoggedIn = !!auth?.user;
@@ -16,5 +19,5 @@ export const authConfig = {
     },
     
   },
-  providers: [], // Add providers with an empty array for now
+  providers: [Google], // Add providers with an empty array for now
 } satisfies NextAuthConfig;

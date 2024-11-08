@@ -1,3 +1,4 @@
+'use client'
 import { CustomerField } from '@/app/lib/definitions';
 import Link from 'next/link';
 import { FaClock, FaCheck, FaCircleUser  } from "react-icons/fa6";
